@@ -1,5 +1,3 @@
-# cool_template
-
 # Chef Templates
 This repo is all about showcasing some template patterns that can be used to make configurations more delightful.
 
