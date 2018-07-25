@@ -9,7 +9,7 @@ hash_based.rb|Build a template almost entirely with node attribute hashes
 ### Hash-based templates
 Sometimes, there is a file, such as a configuration file, which is built of some variable number of key / value pairs. Often this template may contain different number of pairs, or perhaps the keys may change based on the specific configuration needs, but other content of the file is not changed. In this case there are a couple of options:
 1. Use different templates for each possible combination.
-  - Could is perhaps a bit more approachable when first starting out in using templates
+  - Is perhaps a bit more approachable when first starting out in using templates
   - Can become overbearing when there are many different combinations
   - Is a little infexible if things change, such as a specific combination needs to remove some lines
 2. Use a fully dynamic, hash-driven, template
