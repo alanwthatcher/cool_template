@@ -24,3 +24,5 @@ The attributes are broken up into application groups, and the application group 
 How to run just hash-based example:
 - `kitchen converge HashBased`
 - modify the related attributes and rerun `kitchen converge HashBased` to see changes
+
+Of course, the complexity of the actual hash and/or number of differnet hashes passed in will probably change, based on your specific usage. This is just meant as a quick example of a very dynmamic template. For example, you could replace the `app1/app2/app3` hash keys with something like `ssh` and provide a set of reasonable sshd configuration items, and more specific wrapper cookbooks would then be able to modify, add to, and maybe remove (by setting has values to null, possibly) values that make more sense for a specific use case.
