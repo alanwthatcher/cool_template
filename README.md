@@ -22,3 +22,7 @@ Sometimes, there is a file, such as a configuration file, which is built of some
 This cookbook demonstrates the second option in the recipe `hash_based.erb`, and the associated attributes are contained in the `attributes/default.rb` between the comment tags `### HASH BASED ###` and `### \hash based ###`
 
 The attributes are broken up into application groups, and the application group being used is also defined. In reality, the application type might be a role (or role cookbook) based node attribute. But the important part is that it identifies the hash that the template will use. Change the `default['cool_template']['my_app']` attribute value to see the dynamicism that can be accomplished with this pattern.
+
+How to run just hash-based example:
+- `kitchen converge HashBased`
+- modify the related attributes and rerun `kitchen converge HashBased` to see changes

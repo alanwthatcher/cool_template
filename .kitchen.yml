@@ -16,9 +16,9 @@ platforms:
   - name: ubuntu-16.04
 
 suites:
-  - name: default
+  - name: HashBased 
     run_list:
-      - recipe[cool_template::default]
+      - recipe[cool_template::hash_based]
     verifier:
       inspec_tests:
         - test/integration/default
