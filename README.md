@@ -3,7 +3,9 @@ This repo is all about showcasing some template patterns that can be used to mak
 
 Recipe|Brief description
 ------|-----------------
+all_examples.rb|This will run through all examples found below (useful to spin up one kitchen node to see all things)
 hash_based.rb|Build a template almost entirely with node attribute hashes
+partials.rb|Build a file by calling other templates within the source template
 
 # More in depth descriptions
 ### Hash-based templates
@@ -26,3 +28,12 @@ How to run just hash-based example:
 - modify the related attributes and rerun `kitchen converge HashBased` to see changes
 
 Of course, the complexity of the actual hash and/or number of differnet hashes passed in will probably change, based on your specific usage. This is just meant as a quick example of a very dynmamic template. For example, you could replace the `app1/app2/app3` hash keys with something like `ssh` and provide a set of reasonable sshd configuration items, and more specific wrapper cookbooks would then be able to modify, add to, and maybe remove (by setting has values to null, possibly) values that make more sense for a specific use case.
+
+### Partials
+Templates can be made up of other templates by calling the `render` method and specifying the necessary options. The Chef docs section on this can be found [here](https://docs.chef.io/templates.html#partial-templates). This can be a useful option in some circumstances where a file may be fairly large, and perhaps different sections are managed by different function teams. Generally, this isn't much of an issue, however humans do sometimes benefit from separation of things into logical groupings which match thier workflows. Also, you can specify the cookbook from which the partial template comes from, so another usage my possibly be to manage a single files contents while separating the sectiosn out into other cookbooks even. And of course, the partial template can be located on the nodes filesystem, so certain edge cases could make use of that functionality as well.
+
+For the purposes of this examples cookbooks, there are two `template` resources that will utilize partials. The first example will just use three partials which have Lorem Ipsum text. The second template will also use three partials, however, the first and last are Lorem Ipsum static text, and the middle text is from the `hash_based` example.
+
+How to run just hash-based example:
+- `kitchen converge Partials`
+- modify the hash-based related attributes and rerun `kitchen converge Partials` to see changes in the second example

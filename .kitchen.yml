@@ -23,3 +23,17 @@ suites:
       inspec_tests:
         - test/integration/default
     attributes:
+  - name: Partials
+    run_list:
+      - recipe[cool_template::partials]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
+  - name: AllExamples
+    run_list:
+      - recipe[cool_template::all_examples]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:

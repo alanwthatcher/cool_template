@@ -1,0 +1,9 @@
+<% # Here we call the 'render' method to bring in a standard header for our file, with static text %>
+<%= render "global_header.erb",  :local => false %>
+
+<% # Here we call render on the purely attribute driven template from the example `hash_based` in this same coookbook %>
+<% # Instead of passign in any variables as in the hash_driven example, the node attributes are called from here %>
+<%= render "hash_based.erb", :variables => {:key_values => node['cool_template'][node['cool_template']['my_app']]}, :local => false%>
+
+<% # Here we call render on a static footer template %>
+<%= render "global_footer.erb",  :local => false %>
